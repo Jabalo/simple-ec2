@@ -1,11 +1,13 @@
+require('dotenv').config();
 
 const express = require("express");
-
 const app = express();
 const port = process.env.PORT || "8000";
 
 const aws = require('aws-sdk');
 const lambda = new aws.Lambda({
+    accessKeyId: process.env.AWS_ACCESS_KEY,
+    secretAccessKey: process.env.AWS_SECRET,
     region: 'us-east-1'
 });
 
