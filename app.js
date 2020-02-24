@@ -5,7 +5,9 @@ const app = express();
 const port = process.env.PORT || "8000";
 
 const aws = require('aws-sdk');
-const lambda = new aws.Lambda();
+const lambda = new aws.Lambda({
+    region: 'us-east-1'
+});
 
 app.get("/", (req, res) => {
     res.status(200).send("Test EC2");
